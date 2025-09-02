@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Layout from "./components/layout/Layout.jsx";
 import Home from "./Pages/Home/home.jsx";
 import 'bootstrap';
+
 const router = createBrowserRouter([
   {
     path: "/",
