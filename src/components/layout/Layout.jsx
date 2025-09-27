@@ -1,10 +1,12 @@
-import {Outlet} from "react-router";
+import { Outlet } from "react-router";
+import Menu from "../menu/Menu";
 
 function Layout() {
-    return (
-        <>
-        <Outlet></Outlet>
-        </>
-    )
+  return (
+    <>
+      <Menu />
+      <Outlet></Outlet>
+    </>
+  );
 }
 export default Layout;
