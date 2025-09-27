@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 function ListProducts() {
   const [listProducts, setListProducts] = useState([]);
@@ -16,8 +17,14 @@ function ListProducts() {
   }, []);
   return (
     <>
+      <div className="mt-3 d-flex justify-content-between align-items-center px-3">
+        <h5>Lista de produtos</h5>
+        <NavLink to="/create-product">
+          <button className="btn btn-primary btn-sm">+</button>
+        </NavLink>
+      </div>
       <div className="list-products">
-        <table className="table table-striped">
+        <table className="table table-striped mt-3">
           <thead>
             <tr>
               <th>ID</th>
@@ -47,7 +54,7 @@ function ListProducts() {
                         Detalhes
                       </button>
                       <button className="btn btn-danger btn-sm">Deletar</button>
-                      <button className="btn btn-primary btn-sm">Editar</button>
+                      <button className="btn btn-warning btn-sm">Editar</button>
                     </div>
                   </td>
                 </tr>
