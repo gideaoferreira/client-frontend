@@ -8,8 +8,9 @@ import "bootstrap";
 import CreateProduct from "./Pages/Products/create/CreateProduct.jsx";
 import ListProducts from "./Pages/Products/list/ListProducts.jsx";
 import UpdateProduct from "./Pages/Products/update/UpdateProduct.jsx";
-import ListUsers from "./Pages/Users/list/list-users.jsx";
+import ListUsers from "./Pages/Users/list/List-Users.jsx";
 import CreateUser from "./Pages/Users/create/Create-User.jsx";
+import UpdateUser from "./Pages/Users/update/Update-User.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
       {
         path: "/create-user",
         element: <CreateUser />,
+      },
+
+      {
+        path: "/update-user/:id",
+        element: <UpdateUser />,
       },
     ],
   },
