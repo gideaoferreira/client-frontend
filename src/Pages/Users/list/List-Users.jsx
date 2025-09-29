@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
+import Swal from "sweetalert2";
 
 function ListUsers() {
   const [listUsers, setListUsers] = useState([]);
@@ -11,6 +12,33 @@ function ListUsers() {
       console.log(response.data);
     });
   }
+
+  function editUser(id) {
+    console.log(id);
+  }
+
+  function deleteUser(id) {
+    Swal.fire({
+      title: "Tem certeza que deseja deletar?",
+      text: "Essa ação não poderá ser desfeita!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, deletar!",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:3000/user/${id}`).then((response) => {
+          if (response.status == 200) {
+            Swal.fire("Deletado!", "Usuário deletado com sucesso.", "success");
+            getUsers();
+          }
+        });
+      }
+    });
+  }
+
   useEffect(() => {
     getUsers();
   }, []);
@@ -58,8 +86,17 @@ function ListUsers() {
                     <button className="btn btn-secondary btn-sm">
                       Detalhes
                     </button>
-                    <button className="btn btn-danger btn-sm">Deletar</button>
-                    <button className="btn btn-warning btn-sm">Editar</button>
+                    <button
+                      onClick={() => {
+                        deleteUser(user.id);
+                      }}
+                      className="btn btn-danger btn-sm"
+                    >
+                      Deletar
+                    </button>
+                    <NavLink to={{ pathname: `/update-user/${user.id}` }}>
+                      <button className="btn btn-warning btn-sm">Editar</button>
+                    </NavLink>
                   </div>
                 </td>
               </tr>
