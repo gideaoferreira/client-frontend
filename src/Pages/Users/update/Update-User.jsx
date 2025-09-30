@@ -55,48 +55,48 @@ function UpdateUser() {
     <>
       <h5 className="ps-5 mt-3">Editar usuário</h5>
       <div className="card p-5">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             Nome
           </label>
           <input
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            class="form-control"
+            className="form-control"
           />
         </div>
 
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             Sobrenome
           </label>
-          <input type="text" class="form-control" />
+          <input type="text" className="form-control" />
         </div>
 
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             CPF
           </label>
-          <input type="text" class="form-control" />
+          <input type="text" className="form-control" />
         </div>
 
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             Nascimento
           </label>
-          <input type="date" class="form-control" />
+          <input type="date" className="form-control" />
         </div>
 
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             Email
           </label>
-          <input type="text" class="form-control" />
+          <input type="text" className="form-control" />
         </div>
 
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             Status
           </label>
         </div>
