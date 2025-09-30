@@ -2,6 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import Swal from "sweetalert2";
+import {
+  formatDateTime,
+  formatDatePTBR,
+  formatCpf,
+} from "../../../utils/date-format.js";
 
 function ListUsers() {
   const [listUsers, setListUsers] = useState([]);
@@ -30,7 +35,7 @@ function ListUsers() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios.delete(`http://localhost:3000/user/${id}`).then((response) => {
-          if (response.status == 200) {
+          if (response.status == 201) {
             Swal.fire("Deletado!", "Usuário deletado com sucesso.", "success");
             getUsers();
           }
@@ -76,16 +81,18 @@ function ListUsers() {
                 <td>{user.id}</td>
                 <td>{user.name}</td>
                 <td>{user.surname}</td>
-                <td>{user.birthdate}</td>
-                <td>{user.cpf}</td>
+                <td>{formatDatePTBR(user.birthdate)}</td>
+                <td>{formatCpf(user.cpf)}</td>
                 <td>{user.email}</td>
                 <td>{user.status}</td>
-                <td>{user.createdAt}</td>
+                <td>{formatDateTime(user.createdAt)}</td>
                 <td>
                   <div className="d-flex justify-content-end align-items-center gap-1">
-                    <button className="btn btn-secondary btn-sm">
-                      Detalhes
-                    </button>
+                    <NavLink to={{ pathname: `/details-user/${user.id}` }}>
+                      <button className="btn btn-secondary btn-sm">
+                        Detalhes
+                      </button>
+                    </NavLink>
                     <button
                       onClick={() => {
                         deleteUser(user.id);

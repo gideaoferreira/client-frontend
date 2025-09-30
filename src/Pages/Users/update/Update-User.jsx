@@ -61,7 +61,7 @@ function UpdateUser() {
           </label>
           <input
             type="text"
-            value="name"
+            value={name}
             onChange={(event) => setName(event.target.value)}
             class="form-control"
           />
@@ -102,7 +102,9 @@ function UpdateUser() {
         </div>
 
         <div className="d-flex justify-content-end">
-          <button className="btn btn-success">Editar</button>
+          <button onClick={handleSubmit} className="btn btn-success">
+            Editar
+          </button>
         </div>
       </div>
     </>
