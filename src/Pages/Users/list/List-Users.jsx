@@ -7,6 +7,7 @@ import {
   formatDatePTBR,
   formatCpf,
 } from "../../../utils/date-format.js";
+import ShowModal from "../../../components/modal/Show-Modal.jsx";
 
 function ListUsers() {
   const [listUsers, setListUsers] = useState([]);
@@ -84,15 +85,30 @@ function ListUsers() {
                 <td>{formatDatePTBR(user.birthdate)}</td>
                 <td>{formatCpf(user.cpf)}</td>
                 <td>{user.email}</td>
-                <td>{user.status}</td>
+                <td>
+                  {user.status === "ACTIVE" && (
+                    <span className="badge bg-success">Ativo</span>
+                  )}
+                  {user.status === "INACTIVE" && (
+                    <span className="badge bg-secondary">Inativo</span>
+                  )}
+                  {user.status === "BLOCKED" && (
+                    <span className="badge bg-danger">Bloqueado</span>
+                  )}
+                  {user.status === "ANALYSING" && (
+                    <span className="badge bg-warning">Em análise</span>
+                  )}
+                </td>
                 <td>{formatDateTime(user.createdAt)}</td>
                 <td>
                   <div className="d-flex justify-content-end align-items-center gap-1">
-                    <NavLink to={{ pathname: `/details-user/${user.id}` }}>
-                      <button className="btn btn-secondary btn-sm">
-                        Detalhes
-                      </button>
-                    </NavLink>
+                    <button
+                      onClick={() => openDetails(user)}
+                      className="btn btn-secondary btn-sm"
+                    >
+                      Detalhes
+                    </button>
+
                     <button
                       onClick={() => {
                         deleteUser(user.id);

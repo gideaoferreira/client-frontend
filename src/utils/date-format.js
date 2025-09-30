@@ -11,14 +11,11 @@ const formatDateTime = (date) => {
   return formatter.format(new Date(date));
 };
 
-const formatDatePTBR = (date) => {
-  const formatDate = new Intl.DateTimeFormat("pt-BR", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
+const formatDatePTBR = (dateString) => {
+  const formatDate = dateString.split()[0];
+  const [year, month, day] = formatDate.split("-");
 
-  return formatDate.format(new Date(date));
+  return `${day}/${month}/${year}`;
 };
 
 function formatCpf(cpf) {

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function ListProducts() {
   const [listProducts, setListProducts] = useState([]);
@@ -9,6 +10,38 @@ function ListProducts() {
     await axios.get("http://localhost:3000/products").then((response) => {
       setListProducts(response.data);
       console.log(response.data);
+    });
+  }
+
+  function editProduct(id) {
+    console.log(id);
+  }
+
+  function deleteUser(id) {
+    Swal.fire({
+      title: "Tem certeza que deseja deletar?",
+      text: "Essa ação não poderá ser desfeita!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, deletar!",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3000/products/${id}`)
+          .then((response) => {
+            if (response.status == 200) {
+              Swal.fire(
+                "Deletado!",
+                "Usuário deletado com sucesso.",
+                "success"
+              );
+              getProducts();
+            }
+          });
+      }
     });
   }
 
@@ -53,7 +86,14 @@ function ListProducts() {
                       <button className="btn btn-secondary btn-sm">
                         Detalhes
                       </button>
-                      <button className="btn btn-danger btn-sm">Deletar</button>
+                      <button
+                        onClick={() => {
+                          deleteUser(product.id);
+                        }}
+                        className="btn btn-danger btn-sm"
+                      >
+                        Deletar
+                      </button>
                       <button className="btn btn-warning btn-sm">Editar</button>
                     </div>
                   </td>
