@@ -65,6 +65,7 @@ function ListProducts() {
               <th>Marca</th>
               <th>Preço</th>
               <th>Estoque</th>
+              <th>Descrição</th>
               <th></th>
             </tr>
           </thead>
@@ -81,11 +82,16 @@ function ListProducts() {
                   <td>{product.brand}</td>
                   <td>{product.price}</td>
                   <td>{product.stock}</td>
+                  <td>{product.description}</td>
                   <td style={{ width: 75 }}>
                     <div className="d-flex justify-content-end gap-1 align-items-center">
-                      <button className="btn btn-secondary btn-sm">
-                        Detalhes
-                      </button>
+                      <NavLink
+                        to={{ pathname: `/details-product/${product.id}` }}
+                      >
+                        <button className="btn btn-secondary btn-sm">
+                          Detalhes
+                        </button>
+                      </NavLink>
                       <button
                         onClick={() => {
                           deleteUser(product.id);
@@ -94,7 +100,13 @@ function ListProducts() {
                       >
                         Deletar
                       </button>
-                      <button className="btn btn-warning btn-sm">Editar</button>
+                      <NavLink
+                        to={{ pathname: `/update-product/${product.id}` }}
+                      >
+                        <button className="btn btn-warning btn-sm">
+                          Editar
+                        </button>
+                      </NavLink>
                     </div>
                   </td>
                 </tr>

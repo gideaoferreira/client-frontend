@@ -12,6 +12,8 @@ import ListUsers from "./Pages/Users/list/List-Users.jsx";
 import CreateUser from "./Pages/Users/create/Create-User.jsx";
 import UpdateUser from "./Pages/Users/update/Update-User.jsx";
 import DetailsUser from "./Pages/Users/details/Details-User.jsx";
+import ListOrders from "./Pages/Orders/ListOrders.jsx";
+import DetailsProducts from "./Pages/Products/details/DetailsProducts.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,13 +30,18 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/list-products",
+        path: "/products",
         element: <ListProducts />,
       },
 
       {
-        path: "/update-product",
+        path: "/update-product/:id",
         element: <UpdateProduct />,
+      },
+
+      {
+        path: "/details-product/:id",
+        element: <DetailsProducts />,
       },
 
       {
@@ -55,6 +62,11 @@ const router = createBrowserRouter([
       {
         path: "/details-user/:id",
         element: <DetailsUser />,
+      },
+
+      {
+        path: "/orders",
+        element: <ListOrders />,
       },
     ],
   },

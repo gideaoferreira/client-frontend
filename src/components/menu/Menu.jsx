@@ -45,11 +45,11 @@ function Menu() {
                   Produtos
                 </NavLink>
               </li>
-              {/* <li className="nav-item">
-                <NavLink className="nav-link" to="orders" href="#">
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/orders" href="#">
                   Ordens
                 </NavLink>
-              </li> */}
+              </li>
             </ul>
             <form className="d-flex" role="search">
               <input

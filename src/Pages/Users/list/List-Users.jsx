@@ -7,16 +7,20 @@ import {
   formatDatePTBR,
   formatCpf,
 } from "../../../utils/date-format.js";
-import ShowModal from "../../../components/modal/Show-Modal.jsx";
 
 function ListUsers() {
   const [listUsers, setListUsers] = useState([]);
 
   async function getUsers() {
-    await axios.get("http://localhost:3000/users").then((response) => {
+    try {
+      const response = await axios.get("http://localhost:3000/users");
       setListUsers(response.data);
-      console.log(response.data);
-    });
+    } catch (error) {
+      console.error(
+        "Erro ao buscar usuários:",
+        error.response?.data || error.message
+      );
+    }
   }
 
   function editUser(id) {
@@ -102,12 +106,11 @@ function ListUsers() {
                 <td>{formatDateTime(user.createdAt)}</td>
                 <td>
                   <div className="d-flex justify-content-end align-items-center gap-1">
-                    <button
-                      onClick={() => openDetails(user)}
-                      className="btn btn-secondary btn-sm"
-                    >
-                      Detalhes
-                    </button>
+                    <NavLink to={{ pathname: `/details-user/${user.id}` }}>
+                      <button className="btn btn-secondary btn-sm">
+                        Detalhes
+                      </button>
+                    </NavLink>
 
                     <button
                       onClick={() => {

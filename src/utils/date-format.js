@@ -27,6 +27,5 @@ function formatCpf(cpf) {
 }
 
 const cpfNoFormat = "11144477711";
-console.log(formatCpf(cpfNoFormat));
 
 export { formatDateTime, formatDatePTBR, formatCpf };
