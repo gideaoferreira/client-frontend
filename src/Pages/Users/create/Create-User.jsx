@@ -11,14 +11,14 @@ function CreateUser() {
     mode: "onChange",
     defaultValues: {
       birthdate: "",
-      status: "", // valor inicial vazio, usuário deve selecionar
+      status: "",
     },
   });
 
   const navigate = useNavigate();
 
   function onSubmit(data) {
-    console.log("Dados enviados:", data); // para depuração
+    console.log("Dados enviados:", data);
     axios
       .post("http://localhost:3000/user", data)
       .then((response) => {
@@ -40,7 +40,6 @@ function CreateUser() {
 
       <div className="card p-5">
         <form onSubmit={handleSubmit(onSubmit)}>
-          {/* Nome */}
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
               Nome
@@ -58,7 +57,6 @@ function CreateUser() {
             <span className="text-danger">{errors.name?.message}</span>
           </div>
 
-          {/* Sobrenome */}
           <div className="mb-3">
             <label htmlFor="surname" className="form-label">
               Sobrenome
@@ -76,7 +74,6 @@ function CreateUser() {
             <span className="text-danger">{errors.surname?.message}</span>
           </div>
 
-          {/* CPF */}
           <div className="mb-3">
             <label htmlFor="cpf" className="form-label">
               CPF
@@ -94,7 +91,6 @@ function CreateUser() {
             <span className="text-danger">{errors.cpf?.message}</span>
           </div>
 
-          {/* Nascimento */}
           <div className="mb-3">
             <label htmlFor="birthdate" className="form-label">
               Nascimento
@@ -111,7 +107,6 @@ function CreateUser() {
             <span className="text-danger">{errors.birthdate?.message}</span>
           </div>
 
-          {/* Email */}
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
               Email
@@ -131,7 +126,6 @@ function CreateUser() {
             <span className="text-danger">{errors.email?.message}</span>
           </div>
 
-          {/* Senha */}
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
               Senha
@@ -149,7 +143,6 @@ function CreateUser() {
             <span className="text-danger">{errors.password?.message}</span>
           </div>
 
-          {/* Status */}
           <div className="mb-3">
             <label htmlFor="status" className="form-label">
               Status
