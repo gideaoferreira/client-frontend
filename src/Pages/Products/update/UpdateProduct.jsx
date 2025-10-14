@@ -2,6 +2,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import { NavLink } from "react-router";
 
 function UpdateProduct() {
   const [name, setName] = useState("");
@@ -65,7 +66,38 @@ function UpdateProduct() {
   }, []);
   return (
     <>
-      <h5 className="ps-5 mt-3">Editar produto</h5>
+      <div className="d-flex align-items-center">
+        <NavLink
+          to="/products"
+          className="ms-3"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: ".25rem .5rem",
+            fontSize: ".75rem",
+            background: "none",
+            border: "none",
+            color: "inherit",
+            textDecoration: "none",
+            cursor: "pointer",
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="15"
+            viewBox="0 0 1024 1024"
+          >
+            <path
+              fill="currentColor"
+              d="M685.248 104.704a64 64 0 0 1 0 90.496L368.448 512l316.8 316.8a64 64 0 0 1-90.496 90.496L232.704 557.248a64 64 0 0 1 0-90.496l362.048-362.048a64 64 0 0 1 90.496 0"
+            />
+          </svg>
+        </NavLink>
+
+        <h5 className="ps-5 mt-3">Editar produto</h5>
+      </div>
       <div className="card p-5">
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
