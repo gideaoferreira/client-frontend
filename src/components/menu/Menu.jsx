@@ -41,7 +41,7 @@ function Menu() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/list-products" href="#">
+                <NavLink className="nav-link" to="/products" href="#">
                   Produtos
                 </NavLink>
               </li>

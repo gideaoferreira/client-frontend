@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import { NavLink } from "react-router";
 
 function CreateUser() {
   const {
@@ -36,7 +37,38 @@ function CreateUser() {
 
   return (
     <>
-      <h5 className="mt-3 ps-5">Criar Usuário</h5>
+      <div className="d-flex align-items-center">
+        <NavLink
+          to="/users"
+          className="ms-3"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: ".25rem .5rem",
+            fontSize: ".75rem",
+            background: "none",
+            border: "none",
+            color: "inherit",
+            textDecoration: "none",
+            cursor: "pointer",
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="15"
+            viewBox="0 0 1024 1024"
+          >
+            <path
+              fill="currentColor"
+              d="M685.248 104.704a64 64 0 0 1 0 90.496L368.448 512l316.8 316.8a64 64 0 0 1-90.496 90.496L232.704 557.248a64 64 0 0 1 0-90.496l362.048-362.048a64 64 0 0 1 90.496 0"
+            />
+          </svg>
+        </NavLink>
+
+        <h5 className="mt-3 ps-5">Criar Usuário</h5>
+      </div>
 
       <div className="card p-5">
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -147,6 +179,19 @@ function CreateUser() {
             <label htmlFor="status" className="form-label">
               Status
             </label>
+            <select
+              {...register("status")}
+              className="form-select"
+              aria-label="Default select example"
+            >
+              <option selected value="">
+                Selecione o status
+              </option>
+              <option value="ACTIVE">Ativo</option>
+              <option value="INACTIVE">Inativo</option>
+              <option value="ANALYSING">Em análise</option>
+              <option value="BLOCKED">Bloqueado</option>
+            </select>
           </div>
 
           <div className="d-flex justify-content-end px-5">
