@@ -12,8 +12,9 @@ import ListUsers from "./Pages/Users/list/List-Users.jsx";
 import CreateUser from "./Pages/Users/create/Create-User.jsx";
 import UpdateUser from "./Pages/Users/update/Update-User.jsx";
 import DetailsUser from "./Pages/Users/details/Details-User.jsx";
-import ListOrders from "./Pages/Orders/ListOrders.jsx";
+import ListOrders from "./Pages/Orders/list/ListOrders.jsx";
 import DetailsProducts from "./Pages/Products/details/DetailsProducts.jsx";
+import CreateOrder from "./Pages/Orders/create/CreateOrder.jsx";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,11 @@ const router = createBrowserRouter([
       {
         path: "/orders",
         element: <ListOrders />,
+      },
+
+      {
+        path: "/create-order",
+        element: <CreateOrder />,
       },
     ],
   },
