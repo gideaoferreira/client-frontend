@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
+import { NavLink } from "react-router";
 
 function CreateOrder() {
   const navigate = useNavigate();
@@ -55,7 +56,37 @@ function CreateOrder() {
     <div className="container mt-4">
       <div className="card shadow-sm">
         <div className="card-body">
-          <h3 className="card-title mb-4 text-center">Criar Nova Ordem</h3>
+          <div className="d-flex align-items-center">
+            <NavLink
+              to="/orders"
+              className="ms-3"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: ".25rem .5rem",
+                fontSize: ".75rem",
+                background: "none",
+                border: "none",
+                color: "inherit",
+                textDecoration: "none",
+                cursor: "pointer",
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 1024 1024"
+              >
+                <path
+                  fill="currentColor"
+                  d="M685.248 104.704a64 64 0 0 1 0 90.496L368.448 512l316.8 316.8a64 64 0 0 1-90.496 90.496L232.704 557.248a64 64 0 0 1 0-90.496l362.048-362.048a64 64 0 0 1 90.496 0"
+                />
+              </svg>
+            </NavLink>
+            <h3 className="card-title mb-4 text-center">Criar Nova Ordem</h3>
+          </div>
 
           <form onSubmit={handleSubmit}>
             {/* Select de usuários */}

@@ -15,6 +15,7 @@ import DetailsUser from "./Pages/Users/details/Details-User.jsx";
 import ListOrders from "./Pages/Orders/list/ListOrders.jsx";
 import DetailsProducts from "./Pages/Products/details/DetailsProducts.jsx";
 import CreateOrder from "./Pages/Orders/create/CreateOrder.jsx";
+import UpdateOrder from "./Pages/Orders/update/UpdateOrder.jsx";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,11 @@ const router = createBrowserRouter([
       {
         path: "/create-order",
         element: <CreateOrder />,
+      },
+
+      {
+        path: "/update-order/:id",
+        element: <UpdateOrder />,
       },
     ],
   },
