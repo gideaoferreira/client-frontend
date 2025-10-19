@@ -61,7 +61,6 @@ function ListOrders() {
             <th>Cliente</th>
             <th>Produto</th>
             <th>Preço</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -81,13 +80,19 @@ function ListOrders() {
                 <button className="btn btn-secondary btn-sm me-2">
                   Detalhes
                 </button>
+
                 <button
                   onClick={() => deleteOrder(order.id)}
                   className="btn btn-danger btn-sm me-2"
                 >
                   Deletar
                 </button>
-                <button className="btn btn-warning btn-sm">Editar</button>
+                <NavLink
+                  to={{ pathname: `/update-order/${order.id}` }}
+                  className="btn btn-warning btn-sm me-2"
+                >
+                  Editar
+                </NavLink>
               </td>
             </tr>
           ))}
