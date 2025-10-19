@@ -27,7 +27,7 @@ function CreateProduct() {
       .post("http://localhost:3000/products", formattedData)
       .then((response) => {
         if (response.status == 201) {
-          navigate("/list-products");
+          navigate("/products");
         }
       });
   }
